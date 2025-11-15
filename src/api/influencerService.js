@@ -3,7 +3,7 @@
  * Influencer Service - Centralized API calls
  * 
  * This service handles all communication with the backend.
- * When you have a real backend, just replace these mock functions.
+ * When there is a real backend, just replace these mock functions.
  */
 
 // Mock data for development - replace with API calls when backend is ready
