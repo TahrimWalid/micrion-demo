@@ -58,7 +58,6 @@ function YouTubeIcon() {
 }
 
 function TwitterIcon() {
-  // Using the "X" style icon
   return (
     <svg
       viewBox="0 0 24 24"
@@ -112,7 +111,7 @@ function InfluencerCard({ influencer, index }) {
   return (
     <article
       ref={cardRef}
-      className="micrion-card overflow-hidden rounded-3xl glass-panel flex flex-col border border-white/10 hover:border-blue-500/30 transition-all duration-500"
+      className="micrion-card overflow-hidden rounded-3xl glass-panel flex flex-col border border-white/10 hover:border-[#FF3E81]/40 transition-all duration-500 group"
       style={{ 
         animation: `micrionCardEnter 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards`,
         animationDelay: `${index * 60}ms`,
@@ -124,7 +123,7 @@ function InfluencerCard({ influencer, index }) {
       onMouseLeave={handleMouseLeave}
     >
       {/* Image container with overlay */}
-      <div className="relative overflow-hidden group">
+      <div className="relative overflow-hidden">
         <img
           src={imageUrl}
           alt={name}
@@ -132,11 +131,11 @@ function InfluencerCard({ influencer, index }) {
           loading="lazy"
         />
         
-        {/* Smooth gradient overlay on hover */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 micrion-card-image-overlay" />
+        {/* Enhanced gradient overlay - PRIMARY PINK GLOW */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 micrion-card-image-overlay shadow-inner shadow-[#FF3E81]/20" />
 
-        {/* Field badge */}
-        <span className="micrion-profile-badge absolute left-4 bottom-4 rounded-full bg-black/90 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-micrionYellow font-medium">
+        {/* Field badge - DEEP GREEN ACCENT */}
+        <span className="micrion-profile-badge absolute left-4 bottom-4 rounded-full bg-gradient-to-r from-[#0D5232]/90 to-[#0D5232]/70 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-white font-peace font-semibold shadow-lg shadow-[#0D5232]/40 border border-[#0D5232]/50">
           {field}
         </span>
       </div>
@@ -145,51 +144,56 @@ function InfluencerCard({ influencer, index }) {
       <div className="p-4 space-y-3 flex-1 flex flex-col">
         {/* Name and region */}
         <div>
-          <h3 className="text-lg font-semibold leading-snug">{name}</h3>
-          <p className="text-xs text-white/50 font-medium">{region}</p>
+          <h3 className="text-lg font-semibold leading-snug font-peace text-white">
+            {name}
+          </h3>
+          <p className="text-xs text-white/50 font-peace font-medium">{region}</p>
         </div>
 
-        {/* Social stats */}
+        {/* Social stats - CREATIVE PINK/GREEN HOVER */}
         <div className="space-y-1.5 text-xs flex-1">
-          <div className="micrion-stat-row flex items-center justify-between hover:bg-blue-500/10 px-2 py-1.5 rounded-lg transition-all duration-300 cursor-pointer">
+          {/* Instagram */}
+          <div className="micrion-stat-row flex items-center justify-between px-2 py-1.5 rounded-lg transition-all duration-300 cursor-pointer hover:bg-gradient-to-r hover:from-[#FF3E81]/10 hover:to-[#0D5232]/10 hover:border hover:border-[#FF3E81]/20">
             <div className="flex items-center gap-2">
-              <span className="micrion-social-icon inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/10 group-hover:scale-110 transition-transform duration-300">
+              <span className="micrion-social-icon inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/10 group-hover:bg-[#FF3E81]/30 group-hover:shadow-lg group-hover:shadow-[#FF3E81]/40 transition-all duration-300">
                 <InstagramIcon />
               </span>
-              <span className="text-white/65">Instagram</span>
+              <span className="text-white/65 font-peace">Instagram</span>
             </div>
-            <span className="font-semibold text-white/90">
+            <span className="font-peace font-semibold text-white/90">
               {formatNumber(instagramFollowers)}
             </span>
           </div>
 
-          <div className="micrion-stat-row flex items-center justify-between hover:bg-blue-500/10 px-2 py-1.5 rounded-lg transition-all duration-300 cursor-pointer">
+          {/* YouTube */}
+          <div className="micrion-stat-row flex items-center justify-between px-2 py-1.5 rounded-lg transition-all duration-300 cursor-pointer hover:bg-gradient-to-r hover:from-[#FF3E81]/10 hover:to-[#0D5232]/10 hover:border hover:border-[#FF3E81]/20">
             <div className="flex items-center gap-2">
-              <span className="micrion-social-icon inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/10 group-hover:scale-110 transition-transform duration-300">
+              <span className="micrion-social-icon inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/10 group-hover:bg-red-500/30 group-hover:shadow-lg group-hover:shadow-red-500/40 transition-all duration-300">
                 <YouTubeIcon />
               </span>
-              <span className="text-white/65">YouTube</span>
+              <span className="text-white/65 font-peace">YouTube</span>
             </div>
-            <span className="font-semibold text-white/90">
+            <span className="font-peace font-semibold text-white/90">
               {formatNumber(youtubeSubscribers)}
             </span>
           </div>
 
-          <div className="micrion-stat-row flex items-center justify-between hover:bg-blue-500/10 px-2 py-1.5 rounded-lg transition-all duration-300 cursor-pointer">
+          {/* Twitter/X */}
+          <div className="micrion-stat-row flex items-center justify-between px-2 py-1.5 rounded-lg transition-all duration-300 cursor-pointer hover:bg-gradient-to-r hover:from-[#FF3E81]/10 hover:to-[#0D5232]/10 hover:border hover:border-[#FF3E81]/20">
             <div className="flex items-center gap-2">
-              <span className="micrion-social-icon inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/10 group-hover:scale-110 transition-transform duration-300">
+              <span className="micrion-social-icon inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/10 group-hover:bg-white/30 group-hover:shadow-lg group-hover:shadow-white/30 transition-all duration-300">
                 <TwitterIcon />
               </span>
-              <span className="text-white/65">Twitter</span>
+              <span className="text-white/65 font-peace">Twitter</span>
             </div>
-            <span className="font-semibold text-white/90">
+            <span className="font-peace font-semibold text-white/90">
               {formatNumber(twitterFollowers)}
             </span>
           </div>
         </div>
 
-        {/* View profile button */}
-        <button className="micrion-profile-btn mt-2 inline-flex items-center justify-center gap-1.5 w-full rounded-full border border-white/20 px-4 py-2 text-[12px] font-medium text-white/80 hover:border-white/50 hover:bg-white/5 hover:scale-105 active:scale-95 transition-all duration-300">
+        {/* View profile button - PRIMARY PINK GRADIENT */}
+        <button className="micrion-profile-btn mt-2 inline-flex items-center justify-center gap-1.5 w-full rounded-full border border-[#FF3E81]/40 px-4 py-2 text-[12px] font-semibold font-peace text-white/85 bg-gradient-to-r from-[#FF3E81]/5 to-[#0D5232]/5 hover:from-[#FF3E81]/15 hover:to-[#0D5232]/15 hover:border-[#FF3E81]/60 hover:text-white shadow-md shadow-[#FF3E81]/20 hover:shadow-[#FF3E81]/40 hover:scale-105 active:scale-95 transition-all duration-300">
           View profile
           <span className="text-xs">↗</span>
         </button>

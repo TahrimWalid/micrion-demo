@@ -100,41 +100,46 @@ function ClientsSection() {
       id="clients"
       className="relative py-20 md:py-28 overflow-hidden"
     >
-      {/* Background gradient blobs */}
-      <div className="absolute -top-40 -right-40 w-80 h-80 bg-micrionBlue/5 rounded-full blur-3xl opacity-40" />
-      <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-micrionPurple/5 rounded-full blur-3xl opacity-40" />
+      {/* Background gradient blobs - PRIMARY PINK & DEEP GREEN */}
+      <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#FF3E81]/5 rounded-full blur-3xl opacity-40" />
+      <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#0D5232]/5 rounded-full blur-3xl opacity-40" />
 
       <div className="relative max-w-6xl mx-auto px-4 space-y-12">
         {/* Header */}
-        <div className="text-center space-y-4">
-          <p className="uppercase text-[11px] tracking-[0.3em] text-micrionCream/60">
-            Our clients
+        <div className="text-center space-y-4 opacity-0 animate-fadeUp" style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}>
+          <p className="uppercase text-[11px] tracking-[0.3em] text-white/50 font-peace">
+            Trusted Partners
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-micrionYellow via-micrionCream to-micrionRed bg-clip-text text-transparent">
-            Brands that trust Micrion
+          <h2 className="text-3xl md:text-4xl font-bold leading-[1.05] tracking-tight font-peace">
+            <span className="block text-white">
+              Brands that trust
+            </span>
+            <span className="block bg-gradient-to-r from-[#FFF9F0] via-[#FF3E81] to-[#FFF9F0] bg-clip-text text-transparent">
+              Micrion
+            </span>
           </h2>
-          <p className="text-sm md:text-base text-micrionCream/75 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm md:text-base text-[#FFF9F0] max-w-2xl mx-auto leading-relaxed font-peace">
             From fast-growing startups to global brands, we support teams that
             believe in long-term creator relationships.
           </p>
         </div>
 
         {/* Marquee with logos and text */}
-        <div className="relative overflow-hidden py-8">
+        <div className="relative overflow-hidden py-8 opacity-0 animate-fadeUp" style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}>
           <div className="flex gap-12 whitespace-nowrap animate-marquee">
             {[...clients, ...clients].map((client, i) => {
               const LogoComponent = client.logo;
               return (
                 <div
                   key={i}
-                  className="flex flex-col items-center gap-2 px-4 group cursor-pointer"
+                  className="flex flex-col items-center gap-2 px-4 group cursor-pointer transition-all duration-300"
                 >
-                  {/* Logo */}
-                  <div className="text-micrionCream/70 group-hover:text-micrionYellow transition-all duration-300 transform group-hover:scale-110">
+                  {/* Logo - HOVER PINK GLOW */}
+                  <div className="text-white/60 group-hover:text-[#FF3E81] transition-all duration-300 transform group-hover:scale-110 shadow-lg shadow-[#FF3E81]/0 group-hover:shadow-[#FF3E81]/50">
                     <LogoComponent />
                   </div>
                   {/* Brand name */}
-                  <p className="text-xs md:text-sm font-semibold text-micrionCream/80 group-hover:text-micrionYellow transition-colors duration-300 tracking-wide">
+                  <p className="text-xs md:text-sm font-semibold text-white/70 group-hover:text-[#FF3E81] transition-colors duration-300 tracking-wide font-peace">
                     {client.name}
                   </p>
                 </div>
@@ -143,6 +148,23 @@ function ClientsSection() {
           </div>
         </div>
       </div>
+
+      {/* Animation keyframes */}
+      <style>{`
+        @keyframes fadeUp {
+          0% {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fadeUp {
+          animation: fadeUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+      `}</style>
     </section>
   );
 }

@@ -6,25 +6,25 @@ const slides = [
     number: "700+",
     label: "Brand activations in 2024",
     bgClass:
-      "bg-gradient-to-br from-[#ffe58c] via-[#ffb347] to-[#ff6b5a] text-black",
+      "bg-gradient-to-br from-[#FF3E81] via-[#0D5232] to-[#D4346B] text-white",
   },
   {
     number: "3B",
     label: "Cumulative social views",
     bgClass:
-      "bg-gradient-to-br from-[#89f7fe] via-[#66d2ff] to-[#4f46e5] text-black",
+      "bg-gradient-to-br from-[#0D5232] via-[#FF3E81] to-[#5EEAC4] text-white",
   },
   {
     number: "300+",
     label: "Active clients worldwide",
     bgClass:
-      "bg-gradient-to-br from-[#fef3c7] via-[#facc15] to-[#fb923c] text-black",
+      "bg-gradient-to-br from-[#FF3E81] via-[#5EEAC4] to-[#0D5232] text-white",
   },
   {
     number: "7,000",
     label: "Sponsored posts delivered",
     bgClass:
-      "bg-gradient-to-br from-[#fecaca] via-[#f97373] to-[#ef4444] text-black",
+      "bg-gradient-to-br from-[#D4346B] via-[#FF3E81] to-[#5EEAC4] text-white",
   },
 ];
 
@@ -97,22 +97,22 @@ function AchievementsSlider() {
           hasEverBeenVisible ? "" : "opacity-0"
         } ${inView ? "micrion-anim-zoomGlow" : ""}`}
       >
-        {/* subtle background glows */}
+        {/* subtle background glows - PRIMARY PINK & DEEP GREEN */}
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[75%] h-40 rounded-full bg-emerald-400/20 blur-3xl opacity-60" />
-          <div className="absolute -right-24 bottom-0 w-64 h-64 rounded-full bg-micrionRed/25 blur-3xl opacity-50 micrion-glow-drift" />
+          <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[75%] h-40 rounded-full bg-[#0D5232]/30 blur-3xl opacity-60" />
+          <div className="absolute -right-24 bottom-0 w-64 h-64 rounded-full bg-[#FF3E81]/25 blur-3xl opacity-50 micrion-glow-drift" />
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto space-y-10 md:space-y-12">
           {/* main heading with staggered animations */}
           <div className="text-center space-y-3">
-            <p className="micrion-achievement-kicker uppercase text-[11px] tracking-[0.3em] text-white/60">
+            <p className="micrion-achievement-kicker uppercase text-[11px] tracking-[0.3em] text-white/60 font-peace">
               About Micrion
             </p>
-            <h2 className="micrion-achievement-heading text-3xl md:text-4xl font-semibold tracking-tight">
+            <h2 className="micrion-achievement-heading text-3xl md:text-4xl font-semibold tracking-tight font-peace">
               At the core of our agency
             </h2>
-            <p className="micrion-achievement-description text-sm md:text-base text-white/70 max-w-2xl mx-auto">
+            <p className="micrion-achievement-description text-sm md:text-base text-white/70 max-w-2xl mx-auto font-peace">
               We tailor each campaign to the creator and their community.
               Strategy, creative and execution are built together — not
               copy-pasted.
@@ -121,15 +121,15 @@ function AchievementsSlider() {
 
           {/* centered "Creators at the center" copy with staggered animation */}
           <div className="micrion-achievement-copy max-w-2xl mx-auto text-center space-y-4">
-            <h3 className="text-xl md:text-2xl font-semibold">
+            <h3 className="text-xl md:text-2xl font-semibold font-peace">
               Creators at the center
             </h3>
-            <p className="text-sm md:text-base text-white/75 leading-relaxed">
+            <p className="text-sm md:text-base text-white/75 leading-relaxed font-peace">
               Our team works like a boutique studio: we get close to each
               micro-influencer&apos;s audience and align them with campaigns
               that actually make sense.
             </p>
-            <p className="text-sm md:text-base text-white/75 leading-relaxed">
+            <p className="text-sm md:text-base text-white/75 leading-relaxed font-peace">
               From concept to reporting, Micrion keeps both brand and creator
               experience smooth, transparent and measurable.
             </p>
@@ -141,7 +141,7 @@ function AchievementsSlider() {
               {/* soft shadow */}
               <div className="absolute inset-3 rounded-[64px] bg-black/60 blur-2xl opacity-70" />
 
-              {/* Slide card with enhanced styling */}
+              {/* Slide card with enhanced styling - PRIMARY GRADIENT */}
               <div
                 key={index}
                 className={`relative rounded-[64px] px-10 py-10 md:py-12 text-center shadow-2xl transition-all duration-300 ${
@@ -156,10 +156,10 @@ function AchievementsSlider() {
                 </div>
 
                 <div className="relative z-10">
-                  <div className="micrion-achievement-number text-5xl md:text-6xl lg:text-7xl font-extrabold mb-2 tracking-tight">
+                  <div className="micrion-achievement-number text-5xl md:text-6xl lg:text-7xl font-extrabold mb-2 tracking-tight font-peace">
                     {current.number}
                   </div>
-                  <div className="text-sm md:text-lg font-medium opacity-90">
+                  <div className="text-sm md:text-lg font-medium opacity-90 font-peace">
                     {current.label}
                   </div>
                 </div>
@@ -167,7 +167,7 @@ function AchievementsSlider() {
             </div>
           </div>
 
-          {/* interactive dots indicator */}
+          {/* interactive dots indicator - PRIMARY PINK GLOW */}
           <div className="flex justify-center gap-3 pt-6">
             {slides.map((_, i) => (
               <button
@@ -175,8 +175,8 @@ function AchievementsSlider() {
                 onClick={() => handleDotClick(i)}
                 className={`h-[6px] rounded-full transition-all duration-300 cursor-pointer hover:bg-white/60 ${
                   i === index 
-                    ? "w-8 bg-white micrion-dot-active" 
-                    : "w-2 bg-white/40"
+                    ? "w-8 bg-gradient-to-r from-[#FF3E81] to-[#0D5232] micrion-dot-active shadow-lg shadow-[#FF3E81]/50" 
+                    : "w-2 bg-white/40 hover:bg-white/50"
                 }`}
                 aria-label={`Go to slide ${i + 1}`}
               />

@@ -19,6 +19,8 @@ module.exports = {
           "Inter",
           "sans-serif",
         ],
+        peace: ["Fredoka", "Comic Sans MS", "sans-serif"],
+        comic: ["Comic Sans MS", "Fredoka", "sans-serif"],
       },
       keyframes: {
         float: {

@@ -30,7 +30,7 @@ function FilterBar({ filters, onChange }) {
   return (
     <div className="space-y-4">
       {/* Search bar */}
-      <div className="glass-panel rounded-full px-4 py-2 flex items-center gap-3">
+      <div className="glass-panel rounded-full px-4 py-2 flex items-center gap-3 border border-white/10 hover:border-[#FF3E81]/40 transition-all duration-300">
         <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white/5 text-white/60 text-xs">
           🔍
         </span>
@@ -39,11 +39,11 @@ function FilterBar({ filters, onChange }) {
           placeholder="Search creators by name or category..."
           value={filters.search}
           onChange={(e) => update({ search: e.target.value })}
-          className="flex-1 bg-transparent border-none outline-none text-xs md:text-sm placeholder:text-white/40 text-white"
+          className="flex-1 bg-transparent border-none outline-none text-xs md:text-sm placeholder:text-white/40 text-white font-peace"
         />
       </div>
 
-      {/* Category chips */}
+      {/* Category chips - DEEP GREEN ACTIVE STATE */}
       <div className="flex flex-wrap gap-2">
         {fields.map((field, idx) => {
           const active = filters.field === field;
@@ -52,10 +52,10 @@ function FilterBar({ filters, onChange }) {
               key={field}
               onClick={() => update({ field })}
               className={[
-                "px-4 py-1.5 rounded-full text-xs md:text-sm font-medium transition-all duration-300 hover:scale-105 active:scale-95",
+                "px-4 py-1.5 rounded-full text-xs md:text-sm font-medium transition-all duration-300 hover:scale-105 active:scale-95 font-peace",
                 active
-                  ? "bg-micrionRed text-white shadow-md shadow-micrionRed/40"
-                  : "bg-white/5 text-white/70 hover:bg-white/10 hover:border-white/20 border border-white/10",
+                  ? "bg-gradient-to-r from-[#FF3E81] to-[#D4346B] text-white shadow-lg shadow-[#FF3E81]/50 border border-[#FF3E81]/40"
+                  : "bg-white/5 text-white/70 hover:bg-[#0D5232]/20 hover:border-[#0D5232]/40 hover:text-white border border-white/10 transition-all",
               ].join(" ")}
               style={{
                 animation: `slideUp 0.4s ease-out ${idx * 0.05}s both`,
@@ -68,10 +68,10 @@ function FilterBar({ filters, onChange }) {
       </div>
 
       {/* Advanced filters */}
-      <div className="flex flex-wrap items-center gap-3 text-[11px] text-white/60 transition-all duration-500 ease-out">
+      <div className="flex flex-wrap items-center gap-3 text-[11px] text-white/60 transition-all duration-500 ease-out font-peace">
         {/* Region */}
         <div className="flex items-center gap-2 hover:text-white/80 transition-colors duration-300">
-          <span className="uppercase tracking-[0.2em] text-[9px]">
+          <span className="uppercase tracking-[0.2em] text-[9px] font-peace">
             Region
           </span>
           <div className="w-32 transition-all duration-300">
@@ -85,7 +85,7 @@ function FilterBar({ filters, onChange }) {
 
         {/* Platform */}
         <div className="flex items-center gap-2 hover:text-white/80 transition-colors duration-300">
-          <span className="uppercase tracking-[0.2em] text-[9px]">
+          <span className="uppercase tracking-[0.2em] text-[9px] font-peace">
             Platform
           </span>
           <div className="w-32 transition-all duration-300">
@@ -106,7 +106,7 @@ function FilterBar({ filters, onChange }) {
               platform: "all",
             })
           }
-          className="ml-auto text-[11px] text-white/60 hover:text-white hover:underline transition-all duration-300 active:scale-95"
+          className="ml-auto text-[11px] text-white/60 hover:text-[#FF3E81] hover:underline transition-all duration-300 active:scale-95 font-peace font-semibold"
         >
           Reset filters
         </button>

@@ -8,8 +8,8 @@ function Hero() {
   const [stats, setStats] = useState({ categories: 0, countries: 0, engagement: 0 });
 
   useEffect(() => {
-    const fadeDuration = 700; // match micrion-hero-textBlock
-    const typingSpeed = 45; // ms per character
+    const fadeDuration = 700;
+    const typingSpeed = 45;
 
     let intervalId;
     const timeoutId = setTimeout(() => {
@@ -21,7 +21,7 @@ function Hero() {
           clearInterval(intervalId);
         }
       }, typingSpeed);
-    }, fadeDuration); // start typing after the block has faded in
+    }, fadeDuration);
 
     return () => {
       clearTimeout(timeoutId);
@@ -37,7 +37,7 @@ function Hero() {
       { key: "engagement", target: 3, duration: 1500 },
     ];
 
-    const startTime = Date.now() + 1100; // Start after other animations
+    const startTime = Date.now() + 1100;
 
     const animateCounters = () => {
       const now = Date.now();
@@ -69,23 +69,22 @@ function Hero() {
     return () => cancelAnimationFrame(frameId);
   }, []);
 
-  // Split on \n so we can keep the line break + gradient styling
   const headingLines = typedHeading.split("\n");
 
   return (
     <section id="top" className="relative overflow-hidden pt-28 pb-20">
-      {/* warm orange blob top-left – bigger + animated */}
-      <div className="pointer-events-none absolute -top-48 -left-48 h-96 w-96 rounded-full bg-gradient-to-tr from-micrionYellow via-micrionRed to-orange-500 blur-3xl micrion-hero-blob-enhanced" />
+      {/* Animated blob - More dynamic movement */}
+      <div className="pointer-events-none absolute -top-48 -left-48 h-96 w-96 rounded-full bg-gradient-to-br from-[#FF3E81] via-[#D4346B] to-[#FF3E81] blur-3xl micrion-hero-blob-enhanced" />
 
       <div className="relative max-w-6xl mx-auto px-4 grid md:grid-cols-[1.7fr,1.3fr] gap-10 items-center">
-        {/* LEFT: whole text block fades as one */}
+        {/* LEFT: whole text block */}
         <div className="space-y-6 micrion-hero-textBlock">
           {/* kicker */}
-          <p className="micrion-hero-kicker uppercase text-[12px] tracking-[0.35em] text-micrionYellow">
+          <p className="uppercase text-[12px] tracking-[0.35em] text-white/60 font-peace">
             Micro-influencer agency
           </p>
 
-          {/* main heading with real typewriter effect */}
+          {/* main heading with typewriter effect */}
           <h1 className="micrion-hero-heading text-[2.6rem] md:text-5xl lg:text-6xl xl:text-7xl font-semibold leading-[1.05] tracking-tight">
             {headingLines.map((line, idx) => {
               const isSecondLine = idx === 1;
@@ -94,8 +93,8 @@ function Hero() {
                   key={idx}
                   className={
                     isSecondLine
-                      ? "block bg-gradient-to-r from-micrionYellow via-white to-micrionRed bg-clip-text text-transparent"
-                      : "block"
+                      ? "block bg-gradient-to-r from-[#FFF9F0] via-[#FF3E81] to-[#FFF9F0] bg-clip-text text-transparent"
+                      : "block text-white"
                   }
                 >
                   {line}
@@ -118,7 +117,7 @@ function Hero() {
                   .getElementById("influencers")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
-              className="micrion-hero-btn-primary inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-tr from-micrionRed to-orange-400 text-[13px] font-semibold shadow-lg shadow-orange-500/40 hover:shadow-orange-500/80 transition-all"
+              className="micrion-hero-btn-primary inline-flex items-center px-6 py-3 rounded-full bg-[#FF3E81] text-[18px] font-semibold text-white shadow-lg shadow-[#FF3E81]/40 hover:shadow-[#FF3E81]/80 transition-all hover:scale-105 active:scale-95 font-peace"
             >
               Discover creators
             </button>
@@ -128,7 +127,7 @@ function Hero() {
                   .getElementById("contact")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
-              className="micrion-hero-btn-secondary inline-flex items-center px-6 py-3 rounded-full border border-white/20 text-[13px] font-semibold text-white/80"
+              className="micrion-hero-btn-secondary inline-flex items-center px-6 py-3 rounded-full border border-[#FF3E81]/50 text-[18px] font-semibold text-[#FF3E81] hover:bg-[#FF3E81]/10 transition-all hover:scale-105 active:scale-95 font-peace"
             >
               Talk to our team
             </button>
@@ -137,9 +136,8 @@ function Hero() {
           {/* Stats row with icons */}
           <div className="micrion-hero-stats flex flex-wrap gap-4 text-xs text-white/70">
             {/* 50+ categories */}
-            <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">
+            <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:border-[#FF3E81]/40 transition-all">
               <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-white/10">
-                {/* grid icon */}
                 <svg
                   className="w-3 h-3 text-white/80"
                   viewBox="0 0 16 16"
@@ -161,9 +159,8 @@ function Hero() {
             </div>
 
             {/* 20 countries */}
-            <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">
+            <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:border-[#FF3E81]/40 transition-all">
               <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-white/10">
-                {/* globe icon */}
                 <svg
                   className="w-3 h-3 text-white/80"
                   viewBox="0 0 16 16"
@@ -188,9 +185,8 @@ function Hero() {
             </div>
 
             {/* 3x average engagement */}
-            <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">
+            <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:border-[#FF3E81]/40 transition-all">
               <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-white/10">
-                {/* arrow / sparkline icon */}
                 <svg
                   className="w-3 h-3 text-white/80"
                   viewBox="0 0 16 16"
@@ -219,6 +215,34 @@ function Hero() {
         {/* RIGHT column reserved for future hero visual */}
         <div className="hidden md:block" />
       </div>
+
+      <style>{`
+        /* Floating blob animation - More dynamic */
+        @keyframes micrionHeroBlobFloat {
+          0%, 100% {
+            transform: translate(0, 0) scale(1);
+          }
+          15% {
+            transform: translate(50px, -60px) scale(1.2);
+          }
+          30% {
+            transform: translate(-40px, 70px) scale(0.85);
+          }
+          45% {
+            transform: translate(60px, 30px) scale(1.15);
+          }
+          60% {
+            transform: translate(-50px, -50px) scale(0.9);
+          }
+          75% {
+            transform: translate(40px, 60px) scale(1.1);
+          }
+        }
+
+        .micrion-hero-blob-enhanced {
+          animation: micrionHeroBlobFloat 10s ease-in-out infinite;
+        }
+      `}</style>
     </section>
   );
 }

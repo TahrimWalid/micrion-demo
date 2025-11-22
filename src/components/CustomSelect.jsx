@@ -27,7 +27,12 @@ function CustomSelect({ value, onChange, options }) {
     <div className="relative" ref={containerRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="micrion-select flex items-center justify-between w-full"
+        className="micrion-select flex items-center justify-between w-full px-4 py-3 rounded-full border-2 border-transparent bg-[#050814]/40 backdrop-blur-md text-white/90 font-medium transition-all duration-200 hover:bg-[#050814]/60"
+        style={{
+          borderImage: isOpen 
+            ? "linear-gradient(135deg, #FF3E81, #0D5232) 1" 
+            : "linear-gradient(135deg, rgba(255, 62, 129, 0.5), rgba(13, 82, 50, 0.5)) 1",
+        }}
       >
         <span>{selectedLabel}</span>
         <span className={`transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}>
@@ -44,8 +49,8 @@ function CustomSelect({ value, onChange, options }) {
               onClick={() => handleSelect(option)}
               className={`w-full px-3 py-2 text-left text-[11px] transition-all duration-150 ${
                 value === option.value
-                  ? "bg-blue-500/30 text-white font-medium border-l-2 border-blue-500"
-                  : "text-white/80 hover:bg-blue-500/20 hover:text-white"
+                  ? "bg-[#FF3E81]/30 text-white font-medium border-l-2 border-[#FF3E81]"
+                  : "text-white/80 hover:bg-[#FF3E81]/20 hover:text-white"
               }`}
             >
               {option.label}
@@ -53,6 +58,12 @@ function CustomSelect({ value, onChange, options }) {
           ))}
         </div>
       )}
+
+      <style>{`
+        .micrion-select:focus-visible {
+          outline: none;
+        }
+      `}</style>
     </div>
   );
 }

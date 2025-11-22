@@ -1,26 +1,43 @@
-/* src/index.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ---------------- Base Styles ---------------- */
+/* Base font styles */
 @layer base {
   body {
-    @apply text-white font-sans;
-    background-color: #050814; /* dark base for the whole site */
+    @apply text-white font-peace;
+    background-color: #050814;
+  }
+  
+  .font-bold, strong, b {
+    @apply font-peace;
+    font-weight: 700;
   }
 }
 
-/* ---------------- Utilities ------------------ */
 @layer utilities {
   .glass-panel {
     @apply bg-black/40 border border-white/10 backdrop-blur-xl shadow-soft;
   }
 
-  /* Select styling for custom select dropdown */
   .micrion-select {
     @apply rounded-lg px-3 py-2 text-[11px] text-white/90 outline-none transition-all duration-200 cursor-pointer w-full bg-transparent border border-white/15 hover:border-blue-500/50;
   }
+}
+
+/* Add to your component styles */
+.filter-tag {
+  @apply bg-green-900/20 border border-green-700/50 text-green-100 rounded-full px-3 py-1 text-sm hover:bg-green-900/40 transition-all;
+  background-color: rgba(13, 82, 50, 0.2);
+  border-color: rgba(13, 82, 50, 0.5);
+}
+
+.filter-tag.active {
+  background-color: #0D5232;
+  border-color: #0D5232;
 }
 
 /* ---------------- Hero animations ---------------- */
@@ -116,7 +133,7 @@
 
 .micrion-hero-btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 20px 40px rgba(255, 107, 53, 0.5);
+  box-shadow: 0 20px 40px #FF3E81;
 }
 
 .micrion-hero-btn-primary::before {
@@ -143,9 +160,9 @@
 
 .micrion-hero-btn-secondary:hover {
   transform: translateY(-3px);
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.4);
-  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 62, 129, 0.1);
+  border-color: rgba(255, 62, 129, 0.4);
+  box-shadow: 0 10px 30px rgba(255, 62, 129, 0.3);
 }
 
 /* Number counter animation */
@@ -194,7 +211,7 @@
   }
   100% {
     transform: translateY(-8px);
-    box-shadow: 0 25px 50px rgba(59, 130, 246, 0.2), 0 0 40px rgba(59, 130, 246, 0.1);
+    box-shadow: 0 25px 50px rgba(255, 62, 129, 0.2), 0 0 40px rgba(255, 62, 129, 0.1);
   }
 }
 
@@ -204,7 +221,7 @@
 
 .micrion-card:hover {
   animation: micrionCardLift 0.5s ease-out forwards;
-  border-color: rgba(59, 130, 246, 0.3);
+  border-color: rgba(255, 62, 129, 0.3);
 }
 
 /* Image overlay on hover */
@@ -244,7 +261,7 @@
     background-color: transparent;
   }
   50% {
-    background-color: rgba(59, 130, 246, 0.1);
+    background-color: rgba(13, 82, 50, 0.15);
   }
 }
 
@@ -256,7 +273,7 @@
 
 .micrion-card:hover .micrion-stat-row {
   padding: 0.5rem;
-  background-color: rgba(59, 130, 246, 0.08);
+  background-color: rgba(13, 82, 50, 0.1);
 }
 
 /* Social icon animation */
@@ -308,11 +325,11 @@
 }
 
 .micrion-profile-btn:hover {
-  border-color: rgba(59, 130, 246, 0.6);
-  background-color: rgba(59, 130, 246, 0.1);
+  border-color: rgba(255, 62, 129, 0.6);
+  background-color: rgba(255, 62, 129, 0.1);
   color: rgba(255, 255, 255, 0.95);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+  box-shadow: 0 4px 12px rgba(255, 62, 129, 0.2);
 }
 
 .micrion-profile-btn:hover::before {
@@ -364,13 +381,13 @@
     opacity: 1;
     transform: translateY(0) scale(1);
     box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55),
-      0 0 45px rgba(94, 234, 212, 0.45);
+      0 0 45px rgba(13, 82, 50, 1);
   }
   100% {
     opacity: 1;
     transform: translateY(0) scale(1);
     box-shadow: 0 18px 55px rgba(0, 0, 0, 0.5),
-      0 0 35px rgba(94, 234, 212, 0.35);
+      0 0 35px rgba(13, 82, 50, 1);
   }
 }
 
@@ -546,10 +563,10 @@
 /* Card hover perspective effect */
 @keyframes cardHoverGlow {
   0% {
-    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.1);
+    box-shadow: 0 0 0 0 rgba(255, 62, 129, 0.1);
   }
   100% {
-    box-shadow: 0 0 30px 10px rgba(59, 130, 246, 0);
+    box-shadow: 0 0 30px 10px rgba(255, 62, 129, 0);
   }
 }
 
